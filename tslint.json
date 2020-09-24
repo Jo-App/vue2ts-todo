@@ -16,6 +16,13 @@
     "ordered-imports": false,
     "quotemark": [true, "single"],
     "no-trailing-whitespace": false,
-    "eofline": false
+    "eofline": false,
+    "max-line-length": [
+      true, 
+      {
+        "limit": 300, 
+        "ignore-pattern": "^import [^,]+ from |^export | implements"
+      }
+    ]
   }
 }
