@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '../views/Home.vue';
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
 
 Vue.use(VueRouter);
 
@@ -8,7 +10,11 @@ const routes: RouteConfig[] = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    components: {
+      header: Header,
+      content: Home,
+      footer: Footer,
+    },
   },
   {
     path: '/about',

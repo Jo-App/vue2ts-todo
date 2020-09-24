@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+  <div>
+    Header
   </div>
 </template>
 
@@ -8,8 +8,10 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Home',
-  components: {
-  },
+  name: 'Header',
 });
 </script>
+
+
+<style scoped>
+</style>
