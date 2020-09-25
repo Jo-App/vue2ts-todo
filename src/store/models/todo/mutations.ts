@@ -1,9 +1,9 @@
 import { MutationTree } from 'vuex';
-import { State, TodoInfo } from './index';
+import { State, TodoInfo } from './state';
 
 const mutation: MutationTree<State> = {
   removeTodoItem(state: State, payload: any): void {
-    state.todoList.map((data, index) => {
+    state.todoList.map((data: TodoInfo, index: number) => {
       if (data.id === payload.id) {
         state.todoList.splice(index, 1);
       }
@@ -25,7 +25,7 @@ const mutation: MutationTree<State> = {
   },
 
   checkTodoItem(state: State, payload: any): void {
-    state.todoList.map((data) => {
+    state.todoList.map((data: TodoInfo) => {
       if (data.id === payload.id) {
         data.status = !data.status;
       }

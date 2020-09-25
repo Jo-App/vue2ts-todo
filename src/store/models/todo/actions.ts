@@ -1,5 +1,5 @@
 import { ActionTree } from 'vuex';
-import { State } from './index';
+import { State } from './state';
 
 const action: ActionTree<State, any> = {
   
