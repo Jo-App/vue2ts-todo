@@ -41,21 +41,21 @@ import TodoInput from './TodoInput.vue';
 @Component({
   name: 'TodoList',
   components: {
-    TodoInput
-  }
+    TodoInput,
+  },
 })
 export default class TodoListVue extends Vue {
 
-  get todoList():[Object] {
+  get todoList(): [object] {
     return this.$store.state.todo.todoList;
-  };
+  }
 
-  removeItem(e:any, id:number):void {
-    e.stopPropagation(); //이벤트 전파 방지
+  private removeItem(e: any, id: number): void {
+    e.stopPropagation(); //이벤트 전파 방지;
     this.$store.commit('removeTodoItem', { id });
   }
 
-  checkTodoItem(id: number):void {
+  private checkTodoItem(id: number): void {
     this.$store.commit('checkTodoItem', { id });
   }
 }

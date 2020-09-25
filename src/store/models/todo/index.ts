@@ -1,7 +1,7 @@
 import actions from './actions';
 import mutations from './mutations';
 
-export interface todoInfo {
+export interface TodoInfo {
   id: number;
   title: string;
   content: string;
@@ -9,8 +9,8 @@ export interface todoInfo {
 }
 
 export interface State {
-  todoList: todoInfo[];
-  todoInfo: todoInfo;
+  todoList: TodoInfo[];
+  todoInfo: TodoInfo;
   selected: string;
 }
 

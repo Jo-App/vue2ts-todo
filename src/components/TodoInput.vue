@@ -27,22 +27,22 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 @Component({
-  name: 'TodoInput'
+  name: 'TodoInput',
 })
 export default class TodoInputVue extends Vue {
   public inputTitle: string = '';
   public inputContent: string = '';
 
-  addItem():void {
-    if(this.inputTitle !== "" && this.inputContent !== "" ) {
-      this.$store.commit("addTodoItems", { inputTitle: this.inputTitle, inputContent: this.inputContent });
+  private addItem(): void {
+    if (this.inputTitle !== '' && this.inputContent !== '' ) {
+      this.$store.commit('addTodoItems', { inputTitle: this.inputTitle, inputContent: this.inputContent });
       this.clearInput();
     }
-  };
+  }
 
-  clearInput():void {
-    this.inputTitle = "";
-    this.inputContent = "";
+  private clearInput(): void {
+    this.inputTitle = '';
+    this.inputContent = '';
   }
 }
 </script>
