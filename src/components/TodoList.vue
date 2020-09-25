@@ -44,6 +44,7 @@ import TodoInput from './TodoInput.vue';
     TodoInput,
   },
 })
+
 export default class TodoListVue extends Vue {
 
   get todoList(): [object] {
@@ -51,7 +52,8 @@ export default class TodoListVue extends Vue {
   }
 
   private removeItem(e: any, id: number): void {
-    e.stopPropagation(); //이벤트 전파 방지;
+    e.stopPropagation(); 
+    //이벤트 전파 방지;
     this.$store.commit('removeTodoItem', { id });
   }
 

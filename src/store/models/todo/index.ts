@@ -11,7 +11,6 @@ export interface TodoInfo {
 export interface State {
   todoList: TodoInfo[];
   todoInfo: TodoInfo;
-  selected: string;
 }
 
 const state: State = {
@@ -41,7 +40,6 @@ const state: State = {
     content: '',
     status: false,
   },
-  selected: '0',
 };
 
 export default {

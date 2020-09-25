@@ -23,6 +23,10 @@
         "limit": 300, 
         "ignore-pattern": "^import [^,]+ from |^export | implements"
       }
+    ],
+    "comment-format": [
+      false,
+      "check-space"
     ]
   }
 }
