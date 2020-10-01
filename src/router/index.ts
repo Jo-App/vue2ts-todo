@@ -4,6 +4,8 @@ import TodoList from '../components/TodoList.vue';
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 
+import CodeList from '../components/CodeList.vue';
+
 Vue.use(VueRouter);
 
 const routes: RouteConfig[] = [
@@ -13,6 +15,15 @@ const routes: RouteConfig[] = [
     components: {
       header: Header,
       content: TodoList,
+      footer: Footer,
+    },
+  },
+  {
+    path: '/codeList',
+    name: 'CodeList',
+    components: {
+      header: Header,
+      content: CodeList,
       footer: Footer,
     },
   },

@@ -1,38 +1,35 @@
 import axios from 'axios';
-import { State, TodoInfo } from '../store/modules/code/state';
+import { State, CodeInfo } from '../store/modules/code/type';
 
-const API_URL = 'https://localhost:55526/graphql';
+const API_URL = 'http://localhost:5678/graphql';
 
 export default {
-  async TODO_LIST(): Promise<T> {
+
+  async CODE_LIST(): Promise<any> {
     const res = await axios.post(API_URL, {
       query: `query{
-        getCodesPaging(First: 0 Offset: 10){
+        getCodesPaging( Search : { UpCodeNo : null} ){
           totalCount
           resultsList{
             No
-            CorpId{
-              No
-              CorpName
-              Description
-            }
             CodeId
-            UpCodeId{
+            CodeName
+            Description
+            UpCodeNo{
               No
               CodeId
               CodeName
               Description
             }
-            CodeName
-            Description
             CreatedDate
-            ModifiedDate
-            
           }
         }
       }`,
     });
-    console.log(res);
+    const resultsList = res.data.data.getCodesPaging.resultsList;
+    const totalCount = res.data.data.getCodesPaging.totalCount;
+    const listData = { resultsList, totalCount };
+    return listData;
   },
   
 };
