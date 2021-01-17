@@ -2,6 +2,9 @@
 node_modules
 /dist
 .history
+.firebase
+.firbaserc
+.firebase.json
 
 # local env files
 .env.local
