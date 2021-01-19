@@ -1,10 +1,10 @@
 <template>
-  <v-row align="center">
+  <v-row align="center" class="pa-10">
     <v-spacer></v-spacer>
-    <v-col cols="6" sm="6" md="6">
+    <v-col cols="12" sm="12" md="12">
     {{todoList}}
     <TodoInput></TodoInput>
-      <v-simple-table>
+      <!-- <v-simple-table>
         <template v-slot:default>
           <thead>
             <tr>
@@ -26,7 +26,24 @@
             </tr>
           </tbody>
         </template>
-      </v-simple-table>
+      </v-simple-table> -->
+
+      <v-data-table
+        :headers="headers"
+        :items="todoList"
+        class="elevation-1"
+        hide-default-footer
+        item-key="id"
+        @click:row="checkTodoItem($event)"
+      >
+        <template v-slot:[`item.id`]="{ item }">
+          <v-icon v-if="!item.status">sentiment_dissatisfied</v-icon>
+          <v-icon v-if="item.status">sentiment_very_satisfied</v-icon>
+        </template>
+        <template v-slot:[`item.status`]="{ item }">
+          <v-icon @click="removeItem($event, item.id)" style="color:red;">mdi-delete</v-icon>
+        </template>
+      </v-data-table>
     </v-col>
     <v-spacer></v-spacer>
   </v-row>
@@ -51,13 +68,22 @@ export default class TodoListVue extends Vue {
     return this.$store.state.todo.todoList;
   }
 
+  private headers: object = [
+    { text: '', value: 'id', align: 'start', class: 'font-weight-bold subtitle-2 header-style', width: "10%"},
+    { text: 'Title', value: 'title', align: 'start', class: 'font-weight-bold subtitle-2 header-style' },
+    { text: 'Content', value: 'content', align: 'start', class: 'font-weight-bold subtitle-2 header-style' },
+    { text: '', value: 'status', align: 'start', class: 'font-weight-bold subtitle-2 header-style' },
+  ];
+
+
   private removeItem(e: any, id: number): void {
     e.stopPropagation(); 
     //이벤트 전파 방지;
     this.$store.commit('removeTodoItem', { id });
   }
 
-  private checkTodoItem(id: number): void {
+  private checkTodoItem(target: any): void {
+    let id = target.id;
     this.$store.commit('checkTodoItem', { id });
   }
 }

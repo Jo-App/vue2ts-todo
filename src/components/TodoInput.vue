@@ -1,14 +1,13 @@
 <template>
   <v-row align="center">
-    <v-spacer></v-spacer>
-    <v-col cols="2" sm="2" md="2">
+    <v-col cols="12" sm="12" md="4">
       <v-text-field
         outlined
         v-model="inputTitle"
         label="제목"
       ></v-text-field>
     </v-col>
-    <v-col cols="2" sm="2" md="2">
+    <v-col cols="12" sm="12" md="6">
       <v-text-field
         outlined
         v-model="inputContent"
